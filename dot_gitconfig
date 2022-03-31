@@ -1,0 +1,10 @@
+[user]
+	email = andrewdchon@gmail.com
+	name = Andrew Chon
+[core]
+	editor = nvim
+	pager = git-split-diffs --color | less -RFX
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
