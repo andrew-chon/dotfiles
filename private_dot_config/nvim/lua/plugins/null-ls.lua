@@ -1,9 +1,9 @@
 require("null-ls").setup({
   sources = {
-      require("null-ls").builtins.formatting.prettierd,
-      require("null-ls").builtins.formatting.eslint_d,
-      require("null-ls").builtins.diagnostics.eslint_d,
-      require("null-ls").builtins.code_actions.eslint_d,
+    -- Change sources here
+    require("null-ls").builtins.formatting.prettierd,
+    require("null-ls").builtins.diagnostics.eslint_d,
+    require("null-ls").builtins.code_actions.eslint_d,
   },
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then

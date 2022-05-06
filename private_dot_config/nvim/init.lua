@@ -1,5 +1,4 @@
--- neovim config
+require('impatient') -- Plugin to speed startup
 require('plugins')
-require('mappings')
 require('settings')
-require('lsp')
+require('mappings')

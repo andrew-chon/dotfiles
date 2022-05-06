@@ -1,16 +1,14 @@
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
+-- Automatically install packer on a new system
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  execute 'packadd packer.nvim'
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
-
-require('packer').init({display = {auto_clean = false}})
+-- Auto compile
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
 
 return require('packer').startup(function(use)
   -- Load lua path
@@ -21,60 +19,67 @@ return require('packer').startup(function(use)
   -- Allow packer to mange itself
   use { 'wbthomason/packer.nvim' }
 
-  -- use { 'lewis6991/impatient.nvim' } -- speeds up startup?  TODO enable later
+  -- Theme
+  -- use { 'sainnhe/everforest' }
+  use { 'rebelot/kanagawa.nvim'}
 
-  -- Text
-  use { 'numToStr/Comment.nvim', config=lua_path"Comment" }
+  -- LSP
+  use { 'neovim/nvim-lspconfig', config = lua_path"nvim-lspconfig" }
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' },  config = lua_path"null-ls" } -- eslint/formatter
+  use { 'hrsh7th/nvim-cmp', config = lua_path"nvim-cmp" } -- autocompletion library
+  use { 'hrsh7th/cmp-nvim-lsp' } -- hook up cmp to neovim lsp
 
-  -- Telescope
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep', }, config = lua_path"telescope" }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- Snippets
+  use { 'L3MON4D3/LuaSnip', config =lua_path"LuaSnip" }
+  use { 'saadparwaiz1/cmp_luasnip' } -- snippet engine required for nvim-cmp
+  use { 'rafamadriz/friendly-snippets' }
 
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = lua_path"nvim-treesitter" }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
 
-  -- Themes
-  use { 'rebelot/kanagawa.nvim'}
+  -- File explorer
+  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, config = lua_path"nvim-tree" }
 
-  -- Add indentation guides to blank lines TODO fix indentation lines
-  use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
-  
   -- Lualine
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }, config = lua_path"lualine" }
 
-  -- Gitsigns
-  use { 'lewis6991/gitsigns.nvim', config = lua_path"gitsigns" } 
-
-  -- LSP
-  use { 'neovim/nvim-lspconfig', config = lua_path"nvim-lspconfig" }
-  use { 'williamboman/nvim-lsp-installer' }
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'saadparwaiz1/cmp_luasnip' }
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'jose-elias-alvarez/null-ls.nvim', config = lua_path"null-ls" }
-  use { 'jose-elias-alvarez/nvim-lsp-ts-utils'} -- confirm working in nvim-lspconfig
-
-  -- Nvim-tree
-  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons'}, config = lua_path"nvim-tree" }
-  use { 'akinsho/bufferline.nvim', config = lua_path"bufferline" }
+  -- Telescope
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep' }, config = lua_path"telescope" }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Nvim-autopairs
   use { 'windwp/nvim-autopairs', config = lua_path"nvim-autopairs" }
 
-  -- Which-key
-  use { 'folke/which-key.nvim', config = lua_path"which-key"}
+  -- Comments
+  use { 'numToStr/Comment.nvim', config=lua_path"Comment" }
 
-  -- Toggleterm
-  use { 'akinsho/toggleterm.nvim', config = lua_path"toggleterm" }
+  -- Gitsigns
+  use { 'lewis6991/gitsigns.nvim', config = lua_path"gitsigns" } 
 
-  -- TODO add
-  --[[
-    auto-session
-    nvim-ts-autotag  -- to auto close html tag
-    nvim-ts-context-commentstring -- better commenting if needed
-    nvim-colorizer.lua
-  --]]
+  -- Indentation Guides
+  use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
+
+  -- Speedup startime
+  use { 'lewis6991/impatient.nvim' }
+
+  -- Sessions
+  use { 'rmagatti/auto-session', config = lua_path"auto-session" }
+  use { 'rmagatti/session-lens', config = lua_path"session-lens" }
+
+  -- Movement
+  use { 'ggandor/lightspeed.nvim' }
+
+  -- Window Management
+  use { 'beauwilliams/focus.nvim', config = lua_path"focus" }
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = lua_path"bufferline" }
+
+  -- Key bindings
+  use { 'folke/which-key.nvim', config = lua_path"which-key" }
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
-

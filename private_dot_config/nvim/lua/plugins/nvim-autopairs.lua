@@ -1,8 +1,11 @@
-require('nvim-autopairs').setup{
+require('nvim-autopairs').setup({
+  enable_check_bracket_line = false,
+  fast_wrap = {},
   check_ts = true,
-  map_cr = true,
-}
 
+})
+
+-- nvim-cmp mappings
 -- If you want insert `(` after select function or method item
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
