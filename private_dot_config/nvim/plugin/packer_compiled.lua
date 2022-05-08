@@ -238,34 +238,42 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require'plugins.lualine'
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require'plugins.nvim-treesitter'
 time([[Config for nvim-treesitter]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require'plugins.which-key'
-time([[Config for which-key.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require'plugins.nvim-tree'
 time([[Config for nvim-tree.lua]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require'plugins.Comment'
-time([[Config for Comment.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require'plugins.nvim-cmp'
+time([[Config for nvim-cmp]], false)
 -- Config for: focus.nvim
 time([[Config for focus.nvim]], true)
 require'plugins.focus'
 time([[Config for focus.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require'plugins.LuaSnip'
-time([[Config for LuaSnip]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require'plugins.lualine'
+time([[Config for lualine.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require'plugins.Comment'
+time([[Config for Comment.nvim]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require'plugins.bufferline'
+time([[Config for bufferline.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require'plugins.indent-blankline'
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require'plugins.which-key'
+time([[Config for which-key.nvim]], false)
 -- Config for: auto-session
 time([[Config for auto-session]], true)
 require'plugins.auto-session'
@@ -274,22 +282,6 @@ time([[Config for auto-session]], false)
 time([[Config for session-lens]], true)
 require'plugins.session-lens'
 time([[Config for session-lens]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require'plugins.indent-blankline'
-time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require'plugins.nvim-cmp'
-time([[Config for nvim-cmp]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require'plugins.bufferline'
-time([[Config for bufferline.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require'plugins.nvim-autopairs'
-time([[Config for nvim-autopairs]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
 require'plugins.null-ls'
@@ -302,6 +294,14 @@ time([[Config for telescope.nvim]], false)
 time([[Config for gitsigns.nvim]], true)
 require'plugins.gitsigns'
 time([[Config for gitsigns.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require'plugins.LuaSnip'
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require'plugins.nvim-autopairs'
+time([[Config for nvim-autopairs]], false)
 if should_profile then save_profiles() end
 
 end)
