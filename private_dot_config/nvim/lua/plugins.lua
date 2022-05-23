@@ -61,9 +61,6 @@ return require('packer').startup(function(use)
   -- Indentation Guides
   use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
 
-  -- Speedup startime
-  use { 'lewis6991/impatient.nvim' }
-
   -- Sessions
   use { 'rmagatti/auto-session', config = lua_path"auto-session" }
   use { 'rmagatti/session-lens', config = lua_path"session-lens" }
