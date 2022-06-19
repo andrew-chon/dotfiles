@@ -8,3 +8,13 @@
 	prune = true
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	default = simple
+[alias]
+st = status
+logg = log --graph --decorate --oneline --all
+cm = commit
+df = diff
+dfs = diff --staged
