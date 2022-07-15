@@ -22,8 +22,8 @@ local on_attach = function(client, bufnr)
   -- Add server specific options here
   if client.name == "tsserver" then
     -- Disable lsp formatting so it doesn't conflict with null-ls formatting
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
   end
 end
 
