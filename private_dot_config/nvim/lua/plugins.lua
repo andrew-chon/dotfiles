@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   -- Theme
   -- use { 'sainnhe/everforest' }
   use { 'rebelot/kanagawa.nvim'}
+  -- use { "catppuccin/nvim", as = "catppuccin", config = lua_path"catppuccin" }
 
   -- LSP
   use { 'neovim/nvim-lspconfig' }

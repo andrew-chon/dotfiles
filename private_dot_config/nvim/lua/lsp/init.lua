@@ -20,8 +20,8 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
 
   -- Disables lsp formatting.  Set up null-ls for formatting instead
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
+  client.server_capabilities.document_formatting = false
+  client.server_capabilities.document_range_formatting = false
 end
 
 -- Add Neovim's lsp for nvim-cmp source

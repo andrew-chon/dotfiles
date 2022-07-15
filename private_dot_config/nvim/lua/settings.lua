@@ -50,4 +50,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- vim.cmd('colorscheme everforest')
 
 vim.cmd('colorscheme kanagawa')
+-- vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
+-- vim.cmd[[colorscheme catppuccin]]
 
