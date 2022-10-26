@@ -16,3 +16,4 @@ if not status_ok then
 end
 
 telescope.load_extension('fzf')
+
