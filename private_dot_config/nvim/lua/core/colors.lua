@@ -7,3 +7,4 @@
 -- See examples here https://github.com/EdenEast/nightfox.nvim
 vim.cmd("colorscheme nightfox")
 
+

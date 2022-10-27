@@ -13,6 +13,11 @@ map('n', '<leader>do', vim.diagnostic.open_float)
 map('n', '<leader>dp', vim.diagnostic.goto_prev)
 map('n', '<leader>dn', vim.diagnostic.goto_next)
 
+-- Clipboard
+map('v', '<C-c>', '"+yi') -- Copy selected
+map('v', '<C-x>', '"+c') -- Cut selected
+map('v', '<C-v>', 'c<ESC>"+p') -- Paste selected
+map('i', '<C-v>', '<ESC>"+pa') -- Paste selected:
 
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
