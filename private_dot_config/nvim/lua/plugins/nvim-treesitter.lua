@@ -21,6 +21,7 @@ nvim_treesitter.setup({
     'jsdoc',
     'json',
     'lua',
+    'rust',
     'typescript',
   },
 

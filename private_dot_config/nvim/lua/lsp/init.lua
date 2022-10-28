@@ -1,6 +1,6 @@
 -----------------------------------------------------------
 -- Neovim LSP configuration file
------------------------------------------------------------
+-----------------------vim.lsp.buf.formatting------------------------------------
 
 -- Plugin: nvim-lspconfig
 -- url: https://github.com/neovim/nvim-lspconfig
@@ -32,8 +32,7 @@ local on_attach = function(client, bufnr)
     -- vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
     -- vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
   end
-  
-  
+
 
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
@@ -41,7 +40,11 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 -- Add more LSP servers here
-local servers = { 'tsserver' }
+local servers = {
+    'rust_analyzer',
+    'sumneko_lua',
+    'tsserver',
+}
 
 require('mason').setup()
 require('mason-lspconfig').setup({

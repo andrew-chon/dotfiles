@@ -51,6 +51,7 @@ return packer.startup(function(use)
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use 'jose-elias-alvarez/typescript.nvim'    -- Improve typescript lsp 
+    use 'simrat39/rust-tools.nvim'
 
     -- Diagnostics
     use 'folke/trouble.nvim'
@@ -93,13 +94,13 @@ return packer.startup(function(use)
 
     -- Auto-pairs
     use 'windwp/nvim-autopairs'
-    use({
+    use{
       "kylechui/nvim-surround",
       tag = "*", -- Use for stability; omit to use `main` branch for the latest features
       config = function()
           require("nvim-surround").setup()
       end
-  })
+    }
 
     -- Comments
     use {
