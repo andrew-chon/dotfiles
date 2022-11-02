@@ -94,6 +94,7 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
+    { name = 'nvim_lsp_signature_help' },
   },
 
   formatting = { -- Vanilla way to add pictograms to dropdown
