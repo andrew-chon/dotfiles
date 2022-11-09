@@ -48,9 +48,9 @@ vim.diagnostic.config({     -- Enable or disable virtual text
 -- Tabs, indent
 -----------------------------------------------------------
 opt.expandtab = true        -- Use spaces instead of tabs
-opt.shiftwidth = 4          -- Shift 4 spaces when tab
-opt.tabstop = 4             -- 1 tab == 4 spaces
-opt.softtabstop = 4
+opt.shiftwidth = 2          -- Shift 4 spaces when tab
+opt.tabstop = 2             -- 1 tab == 4 spaces
+opt.softtabstop = 2
 opt.smartindent = true      -- Autoindent new lines
 opt.smartindent = true      -- like 'autoindent' but recognizes C syntax for better indentation
 opt.autoindent = true       -- uses indent from previous line
