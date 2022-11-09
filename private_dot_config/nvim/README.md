@@ -1,4 +1,9 @@
-Add additional languages
+-- Troubleshooting
+Treesitter errors
+
+- Run :TSUpdate first to see if that fixes it
+
+  Add additional languages
 
 - Add treesitter in: lua/plugins/nvim-treesitter
 - Add lsp in lua/lsp/init.lua and also add server lua file

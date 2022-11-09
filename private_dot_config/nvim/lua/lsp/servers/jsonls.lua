@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function(on_attach, capabilities)
-    require'lspconfig'.sumneko_lua.setup{
+    require'lspconfig'.jsonls.setup{
       on_attach = on_attach,
       capabilities = capabilities,
     }
