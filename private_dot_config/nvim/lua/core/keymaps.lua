@@ -19,6 +19,9 @@ map('v', '<C-x>', '"+c') -- Cut selected
 map('v', '<C-v>', 'c<ESC>"+p') -- Paste selected
 map('i', '<C-v>', '<ESC>"+pa') -- Paste selected:
 
+-- Open link
+map('n', 'gx', ':!open <c-r><c-a><CR>')
+
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
