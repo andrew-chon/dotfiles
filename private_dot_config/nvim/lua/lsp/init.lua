@@ -41,6 +41,7 @@ capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 -- Add more LSP servers here
 local servers = {
+    'gopls',
     'jsonls',
     'rust_analyzer',
     'sumneko_lua',

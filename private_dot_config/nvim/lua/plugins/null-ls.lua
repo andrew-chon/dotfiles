@@ -59,10 +59,15 @@ end
 null_ls.setup({
     --  Add sources here for new languages
     sources = {
-        null_ls.builtins.formatting.rustfmt,
+        -- Rust
+        -- null_ls.builtins.formatting.rustfmt,
+        -- JavaScript
         null_ls.builtins.formatting.prettierd,
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.code_actions.eslint_d,
+        -- Go
+        null_ls.builtins.diagnostics.golangci_lint,
+        null_ls.builtins.formatting.gofmt
     },
     on_attach = on_attach,
 })
@@ -70,6 +75,8 @@ null_ls.setup({
 -- Add null-ls sources here
 local sources = {
     'eslint_d',
+    'gofmt',
+    'golangci_lint',
     'prettierd',
 }
 
