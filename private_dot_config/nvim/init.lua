@@ -1,36 +1,32 @@
-do
-    local ok, _ = pcall(require, 'impatient')
-  
-    if not ok then
-      vim.notify('impatient.nvim not installed', vim.log.levels.WARN)
-    end
+require("core")
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-require('packer_init')
-require('core/options')
-require('core/autocmds')
-require('core/keymaps')
-require('core/colors')
-require('lsp')
-
--- Plugin configs
-require('plugins/nvim-cmp')
-require('plugins/LuaSnip')
-require('plugins/nvim-tree')
-require('plugins/lualine')
-require('plugins/indent-blankline')
-require('plugins/nvim-treesitter')
-require('plugins/telescope')
-require('plugins/nvim-autopairs')
-require('plugins/gitsigns')
-require('plugins/focus')
-require('plugins/bufferline')
-require('plugins/leap')
-require('plugins/null-ls')
-require('plugins/trouble')
-
-
-
-
-
-
+require("lazy").setup("plugins", {
+  install = {
+    colorscheme = { "nightfox" },
+  },
+  performance = {
+    disabled_plugins = {
+      "gzip",
+      "matchit",
+      "matchparen",
+      "netrwPlugin",
+      "tarPlugin",
+      "tohtml",
+      "tutor",
+      "zipPlugin",
+    },
+  }
+})

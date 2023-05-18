@@ -1,14 +1,11 @@
------------------------------------------------------------
--- Movement
------------------------------------------------------------
-
--- Plugin: leap.nvim
--- url: https://github.com/ggandor/leap.nvim
-
-local status_ok, leap = pcall(require, 'leap')
-if not status_ok then
-  vim.notify('leap not ok', vim.log.levels.WARN)
-  return
-end
-
-leap.add_default_mappings()
+return {
+    "ggandor/leap.nvim",
+    keys = {
+        { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
+        { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
+        { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    },
+    config = function()
+        require("leap").add_default_mappings()
+    end
+}
