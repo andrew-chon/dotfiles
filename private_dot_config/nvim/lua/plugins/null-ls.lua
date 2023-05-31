@@ -44,7 +44,7 @@ return
             on_attach = on_attach,
             sources = {
                 -- Rust
-                -- null_ls.builtins.formatting.rustfmt,
+                null_ls.builtins.formatting.rustfmt,
                 -- JavaScript
                 null_ls.builtins.formatting.prettierd,
                 null_ls.builtins.diagnostics.eslint_d,
