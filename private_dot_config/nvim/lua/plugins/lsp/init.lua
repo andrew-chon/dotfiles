@@ -36,7 +36,7 @@ return {
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 
-            local on_attach = function(_, bufnr)
+            local on_attach = function(client, bufnr)
                 -- NOTE: Remember that lua is a real programming language, and as such it is possible
                 -- to define small helper and utility functions so you don't have to repeat yourself
                 -- many times.
@@ -77,6 +77,16 @@ return {
                 vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                     vim.lsp.buf.format()
                 end, { desc = 'Format current buffer with LSP' })
+
+                -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
+                if client.name == 'gopls' and not client.server_capabilities.semanticTokensProvider then
+                  local semantic = client.config.capabilities.textDocument.semanticTokens
+                  client.server_capabilities.semanticTokensProvider = {
+                    full = true,
+                    legend = {tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes},
+                    range = true,
+                  }
+                end
             end
 
             for _, server in ipairs(servers) do
