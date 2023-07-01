@@ -17,7 +17,7 @@ config.font = wezterm.font 'Iosevka Extended'
 config.color_scheme = 'nordfox'
 config.window_close_confirmation = 'NeverPrompt'
 config.enable_tab_bar = false
+config.front_end = 'WebGpu'
 
 -- and finally, return the configuration to wezterm
 return config
-
