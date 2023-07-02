@@ -13,7 +13,8 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.font = wezterm.font 'Iosevka Extended'
+config.font = wezterm.font 'JetBrainsMono Nerd Font'
+config.font_size = 13
 config.color_scheme = 'nordfox'
 config.window_close_confirmation = 'NeverPrompt'
 config.enable_tab_bar = false
