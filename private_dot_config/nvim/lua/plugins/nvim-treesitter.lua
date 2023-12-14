@@ -7,15 +7,19 @@ return {
     opts = {
         ensure_installed = {
             "bash",
+            -- "css",
+            "comment",
             "git_rebase",
             "gitcommit",
             "go",
-            "html",
-            "java",
+            "gomod",
+            -- "html",
+            -- "java",
             "javascript",
             "jsdoc",
             "json",
             "lua",
+            "make",
             "markdown",
             "markdown_inline",
             "python",
@@ -27,10 +31,6 @@ return {
             "typescript",
             "vim",
             "yaml",
-        },
-        context_commentstring = {
-            enable = true, -- for nvim-ts-context-commentstring
-            enable_autocmd = false,
         },
         highlight = {
             enable = true,
